@@ -1,5 +1,5 @@
 ### mongoDB driver api 
-small project connection js app with mongodb
+create connection from js app to mongodb
 
 ## tools used:
 

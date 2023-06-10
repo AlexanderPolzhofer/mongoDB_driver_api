@@ -7,6 +7,7 @@ const app = express();
 
 
 // db connection //
+let db;
 
 connectToDb((error) => {
 	if (!error) {
@@ -19,6 +20,14 @@ connectToDb((error) => {
 
 // routes //
 
-app.get('/route', (req, res) => {
-	res.json({ message: 'Welcome to the api' })
+app.get('/routeNameEqualsCollectionName', (req, res) => {
+	let collectionArray = [];
+
+	db.collection('/dbCollectionName')
+		.find()
+		.sort({ parameter: 'value' })
+		.forEach(val => collectionArray.push(val))
+		.then(() => {
+			res.status(200).json(collectionArray)
+		})
 })
