@@ -30,4 +30,7 @@ app.get('/routeNameEqualsCollectionName', (req, res) => {
 		.then(() => {
 			res.status(200).json(collectionArray)
 		})
+		.catch(() => {
+			res.status(500).json({ error: 'Could not fetch the documents' })
+		})
 })
