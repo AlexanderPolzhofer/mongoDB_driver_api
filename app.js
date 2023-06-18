@@ -20,12 +20,12 @@ connectToDb((error) => {
 
 // routes //
 
-app.get('/routeNameEqualsCollectionName', (req, res) => {
+app.get('/hats', (req, res) => {
 	let collectionArray = [];
 
-	db.collection('/dbCollectionName')
+	db.collection('hats')
 		.find()
-		.sort({ parameter: 'value' })
+		.sort({ _id: 1 })
 		.forEach(val => collectionArray.push(val))
 		.then(() => {
 			res.status(200).json(collectionArray)
